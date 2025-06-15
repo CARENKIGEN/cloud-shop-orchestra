@@ -1,13 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from 'react';
+import ProductCatalog from '@/components/ecommerce/ProductCatalog';
+import ShoppingCart from '@/components/ecommerce/ShoppingCart';
+import Header from '@/components/ecommerce/Header';
+import { CartProvider } from '@/context/CartContext';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <CartProvider>
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <main className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-3">
+              <ProductCatalog />
+            </div>
+            <div className="lg:col-span-1">
+              <ShoppingCart />
+            </div>
+          </div>
+        </main>
       </div>
-    </div>
+    </CartProvider>
   );
 };
 
